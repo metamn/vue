@@ -24,11 +24,14 @@ These are the assumptions we are trying to prove with this test project:
 - the html looks pretty ok: http://imgur.com/a/79daL
 - when pre-rendering commented out after a new build the `app` container was empty as expected: `... </head><body><div id=app></div><script type=text/javascript ...`
 
+## Dev console
+
+- after installing Vue Dev Tools I'm able to interact with the app data: http://imgur.com/a/6jgkh
 
 ## Page Speed
 
 - 78/100: https://developers.google.com/speed/pagespeed/insights/?url=http%3A%2F%2Fmetamn.io%2Ftest1%2F
-- 71/100 for metamn.io 
+- 71/100 for metamn.io
 
 ## Deploying
 
