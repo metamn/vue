@@ -14,16 +14,21 @@ These are the assumptions we are trying to prove with this test project:
 
 
 
-## Basics
-
-- new components can be added / removed via the router in `router/index.js`
-
-
 
 ## Components
 
+1. There are lots of reusable components out there like Material Design for Vue ... we should find a strategy here how to proceed to not reinvent the wheel
+2. My own components should be standalone npm modules with their own Github repository and versioning
+
+
+### Basics
+
+- new components can be added / removed via the router in `router/index.js`
+- or imported inside an already added parent component
+
 > For example, you can put each component in its own directory, with its static assets right next to it.
 - http://vuejs-templates.github.io/webpack/static.html
+
 
 
 
