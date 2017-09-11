@@ -3,6 +3,7 @@
     <h1>{{ msg }}</h1>
     <h2>Essential Links</h2>
     <ul>
+      <li><link></link></li>
       <li><a href="https://vuejs.org" target="_blank">Core Docs</a></li>
       <li><a href="https://forum.vuejs.org" target="_blank">Forum</a></li>
       <li><a href="https://gitter.im/vuejs/vue" target="_blank">Gitter Chat</a></li>
@@ -21,12 +22,18 @@
 </template>
 
 <script>
+  // Link is an npm package from https://www.npmjs.com/package/mv-link installed by npm -i --save-dev mv-link
+  import Link from 'mv-link'
+
   export default {
     name: 'hello',
     data () {
       return {
         msg: 'Welcome to Your Vue.js App'
       }
+    },
+    components: {
+      'link': Link
     }
   }
 </script>
