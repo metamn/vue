@@ -21,8 +21,6 @@
 </template>
 
 <script>
-  import link from '@/components/framework/design/decorations/link'
-
   export default {
     name: 'hello',
     data () {
