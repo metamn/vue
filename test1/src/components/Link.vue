@@ -5,14 +5,15 @@
 <script>
   export default {
     name: 'mv-link',
-    props: [],
+    props: [
+      'url',
+      'title'
+    ],
     mounted () {
 
     },
     data () {
       return {
-        title: 'Link title',
-        url: 'http://example.com'
       }
     },
     methods: {
