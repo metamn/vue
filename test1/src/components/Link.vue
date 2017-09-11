@@ -1,5 +1,5 @@
 <template>
-  <a class='mv-link' :href="url" :title="title">{{ title }}</a>
+  <a :class="computedClass" :href="computedURL" :title="title">{{ title }}</a>
 </template>
 
 <script>
@@ -7,7 +7,9 @@
     name: 'mv-link',
     props: [
       'url',
-      'title'
+      'title',
+      'klass',
+      'type'
     ],
     mounted () {
 
@@ -20,7 +22,20 @@
 
     },
     computed: {
+      computedURL () {
+        switch (this.type) {
+          case 'email':
+            return 'mailto:' + this.url
+          case 'phone':
+            return 'tel:' + this.url
+          default:
+            return this.url
+        }
+      },
 
+      computedClass () {
+        return this.klass ? 'mv-link ' + this.klass : 'mv-link'
+      }
     }
 }
 </script>
