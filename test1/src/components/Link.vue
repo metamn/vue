@@ -1,5 +1,5 @@
 <template>
-  <a :class="computedClass" :href="computedURL" :title="title">{{ title }}</a>
+  <a :class="computedClass" :href="computedURL" :title="title"><slot></slot></a>
 </template>
 
 <script>
