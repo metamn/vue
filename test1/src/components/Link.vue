@@ -1,5 +1,5 @@
 <template>
-  <a :class="computedClass" :href="computedURL" :title="title"><slot></slot></a>
+  <a :class="computedClass" :href="computedURL" :title="title"><slot>inside the slot</slot></a>
 </template>
 
 <script>
@@ -11,22 +11,14 @@
       'klass',
       'type'
     ],
-    mounted () {
-
-    },
-    data () {
-      return {
-      }
-    },
-    methods: {
-
-    },
     computed: {
       computedURL () {
         switch (this.type) {
           case 'email':
+          case 'e-mail':
             return 'mailto:' + this.url
           case 'phone':
+          case 'tel':
             return 'tel:' + this.url
           default:
             return this.url
