@@ -3,6 +3,7 @@ import { action } from '@storybook/addon-actions';
 import { linkTo } from '@storybook/addon-links';
 
 import { withKnobs, text, boolean, number } from '@storybook/addon-knobs';
+import { withNotes } from '@storybook/addon-notes';
 
 
 import MyButton from './MyButton.vue';
@@ -21,18 +22,23 @@ storiesOf('Welcome', module)
 
 storiesOf('Button', module)
   .addDecorator(withKnobs)
-  .add('with text', () => {
-    const buttonName = text('Name', 'Arunoda Susiripala')
-    return {
-      components: {
-        MyButton
-      },
-      template: `<my-button @click="action">${buttonName}</my-button>`,
-      methods: {
-        action: action('clicked')
-      },
-    }
-  })
+  .add(
+    'with text',
+    withNotes({
+      text: 'My notes on some bold text'
+    })(() => {
+      const buttonName = text('Name', 'Arunoda Susiripala')
+      return {
+        components: {
+          MyButton
+        },
+        template: `<my-button @click="action">${buttonName}</my-button>`,
+        methods: {
+          action: action('clicked')
+        },
+      }
+    })
+  )
   .add('with some emoji', () => ({
     components: {
       MyButton
