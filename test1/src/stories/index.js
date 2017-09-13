@@ -4,6 +4,7 @@ import { linkTo } from '@storybook/addon-links';
 
 import { withKnobs, text, boolean, number } from '@storybook/addon-knobs';
 import { withNotes } from '@storybook/addon-notes';
+import { withInfo } from '@storybook/addon-info';
 
 
 import MyButton from './MyButton.vue';
@@ -24,9 +25,11 @@ storiesOf('Button', module)
   .addDecorator(withKnobs)
   .add(
     'with text',
-    withNotes({
+    // withInfo('doc string about my component')
+    withInfo({
       text: 'My notes on some bold text'
-    })(() => {
+    })
+    (() => {
       const buttonName = text('Name', 'Arunoda Susiripala')
       return {
         components: {
