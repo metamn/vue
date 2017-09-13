@@ -5,11 +5,12 @@ import { linkTo } from '@storybook/addon-links';
 import MyButton from './MyButton.vue';
 import Welcome from './Welcome.vue';
 
-storiesOf('Welcome', module).add('to Storybook', () => ({
-  components: { Welcome },
-  template: '<welcome :showApp="action" />',
-  methods: { action: linkTo('Button') },
-}));
+storiesOf('Welcome', module)
+  .add('to Storybook', () => ({
+    components: { Welcome },
+    template: '<welcome :showApp="action" />',
+    methods: { action: linkTo('Button') },
+  }));
 
 storiesOf('Button', module)
   .add('with text', () => ({
