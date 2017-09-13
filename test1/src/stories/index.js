@@ -6,6 +6,9 @@ import { withKnobs, text, boolean, number } from '@storybook/addon-knobs';
 import { withNotes } from '@storybook/addon-notes';
 import { withInfo } from '@storybook/addon-info';
 
+// import ButtonReadme from './README.md';
+import withReadme from 'storybook-readme/with-readme';
+
 
 import MyButton from './MyButton.vue';
 import Welcome from './Welcome.vue';
@@ -26,7 +29,7 @@ storiesOf('Button', module)
   .add(
     'with text',
     // withInfo('doc string about my component')
-    withInfo({
+    withNotes({
       text: 'My notes on some bold text'
     })
     (() => {
