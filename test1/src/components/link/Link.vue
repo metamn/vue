@@ -75,6 +75,11 @@
 
 <style scoped lang="scss">
   .mv-link {
-    color: blue;
+    color: red;
+
+    @import '--not-underlined/link--not-underlined.scss';
+    &--not-underlined {
+      @include link--not-underlined;
+    }
   }
 </style>
