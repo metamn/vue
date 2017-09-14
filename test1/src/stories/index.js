@@ -2,15 +2,16 @@ import { storiesOf } from '@storybook/vue'
 import { action } from '@storybook/addon-actions'
 import { linkTo } from '@storybook/addon-links'
 
+// they work with Vue
 import { withKnobs, text } from '@storybook/addon-knobs'
 import { withNotes } from '@storybook/addon-notes'
-import { withInfo } from '@storybook/addon-info'
 
+// they do not work with Vue
+import { withInfo } from '@storybook/addon-info'
 import ButtonReadme from './README.md'
 import withReadme from 'storybook-readme/with-readme'
 
 import { setOptions } from '@storybook/addon-options';
-
 setOptions({
   /**
    * name to display in the top left corner
@@ -76,9 +77,6 @@ setOptions({
   selectedAddonPanel: undefined, // The order of addons in the "Addons Panel" is the same as you import them in 'addons.js'. The first panel will be opened by default as you run Storybook
 });
 
-//storybook.configure(() => require('./'), module);
-
-
 import MyButton from './MyButton.vue'
 import Welcome from './Welcome.vue'
 
@@ -98,7 +96,6 @@ storiesOf('Button', module)
   .addDecorator(withKnobs)
   .add(
     'with text',
-    // withInfo('doc string about my component'),
     withNotes({text: 'My notes on some bold text'})(() => {
       const buttonName = text('Name', 'Arunoda Susiripala')
       return {
