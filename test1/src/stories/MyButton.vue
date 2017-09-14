@@ -10,7 +10,7 @@
 
     methods: {
       onClick () {
-        console.log('clicked');
+        console.log('clicked')
       }
     }
   }
