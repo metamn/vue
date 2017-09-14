@@ -1,3 +1,4 @@
 module.exports = {
-  webpackConfig: require('./build/webpack.base.conf.js')
+  webpackConfig: require('./build/webpack.base.conf.js'),
+  showUsage: true
 };

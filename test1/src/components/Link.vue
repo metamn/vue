@@ -5,13 +5,47 @@
 <script>
   export default {
     name: 'mv-link',
-    props: [
-      'url',
-      'title',
-      'klass',
-      'type'
-    ],
+    props: {
+      /**
+       * The URL where the link points
+       */
+      url: {
+        type: String,
+        default: 'http://example.com'
+      },
+      /**
+       * The title of the link displayed on hover
+       */
+      title: {
+        type: String,
+        default: 'Link title'
+      },
+      /**
+       * The type of the url like email, telephone, etc.
+       */
+      type: {
+        type: String,
+        default: ''
+      },
+      /**
+       * An additional class to be added for the link
+       */
+      klass: {
+        type: String,
+        default: ''
+      }
+    },
     computed: {
+      /**
+       * Add a prefix to the URL if necessary
+       *
+       * Like 'mailto:' or 'tel:'
+       *
+       * @public
+       * @param {String} type The type of the URL
+       * @param {String} url The value of the URL
+       * @return {String} the URL or the URL with a prefix
+       */
       computedURL () {
         switch (this.type) {
           case 'email':
@@ -25,6 +59,13 @@
         }
       },
 
+      /**
+       * Add a classname to the existing 'mv-link' classname
+       *
+       * @public
+       * @param {String} klass The classname to be added
+       * @return {String} 'mv-link', or the 'mv-link' + the classname
+       */
       computedClass () {
         return this.klass ? 'mv-link ' + this.klass : 'mv-link'
       }
