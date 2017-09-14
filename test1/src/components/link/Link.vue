@@ -75,6 +75,7 @@
 
 <style scoped lang="scss">
   .mv-link {
+    // https://survivejs.com/react/advanced-techniques/styling-react/
     color: red;
 
     @import '--not-underlined/link--not-underlined.scss';
