@@ -7,7 +7,7 @@ import { withNotes } from '@storybook/addon-notes';
 import { withInfo } from '@storybook/addon-info';
 
 // import ButtonReadme from './README.md';
-import withReadme from 'storybook-readme/with-readme';
+// import withReadme from 'storybook-readme/with-readme';
 
 
 import MyButton from './MyButton.vue';
