@@ -28,11 +28,11 @@
         default: ''
       },
       /**
-       * An additional class to be added for the link
+       * Class names to style the link
        */
       klass: {
         type: String,
-        default: ''
+        default: 'default'
       }
     },
     computed: {
@@ -60,27 +60,37 @@
       },
 
       /**
-       * Add a classname to the existing 'mv-link' classname
+       * Style the component
+       *
+       * This seems to be not working, I mean the return is lost somehowin Vue
+       * If I add manually the '$style.default' to :class it works
        *
        * @public
-       * @param {String} klass The classname to be added
-       * @return {String} 'mv-link', or the 'mv-link' + the classname
+       * @param {String} klass The styles to be added
+       * @return {computedClass} a CSS Module like computed stuff
        */
       computedClass () {
-        return this.klass ? 'mv-link ' + this.klass : 'mv-link'
+        if (!this.klass) {
+          return '$style.default'
+        }
+
+        var klasses = this.klass.split(' ')
+        var ret = klasses.map(function (klass) {
+          return '$style.' + klass
+        }).join(', ')
+        // console.log(`[${ret}]`)
+        return `[${ret}]`
       }
     }
 }
 </script>
 
-<style scoped lang="scss">
-  .mv-link {
-    // https://survivejs.com/react/advanced-techniques/styling-react/
+<style module>
+  .default {
     color: red;
+  }
 
-    @import '--not-underlined/link--not-underlined.scss';
-    &--not-underlined {
-      @include link--not-underlined;
-    }
+  .notUnderlined {
+    text-decoration: none;
   }
 </style>
