@@ -5,6 +5,15 @@
 <script>
   // from https://www.npmjs.com/package/normalize.css/
   import 'normalize.css'
+
+  // Loading webfonts
+  import fonts from '../components/framework/fonts'
+
+  export default {
+    components: {
+      'mv-fonts': fonts
+    }
+  }
 </script>
 
 <style lang="scss">
