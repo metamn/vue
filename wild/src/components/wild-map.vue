@@ -1,5 +1,5 @@
 <template lang="html">
-  <aside v-resize:debounce="makeTextResponsive" :class="$style.wildMap" :style="computedContainerStyle">
+  <aside v-resize:throttle="makeTextResponsive" :class="$style.wildMap" :style="computedContainerStyle">
     <h3>Wild map</h3>
 
     <div :class="[$style.wilderness]" :style="computedWildernessStyleTop">
@@ -41,7 +41,10 @@
       width: {
         type: Object,
         default: function () {
-          return '70vw'
+          return {
+            size: 70,
+            unit: 'vw'
+          }
         }
       },
       /**
@@ -55,7 +58,10 @@
       borderSize: {
         type: Object,
         default: function () {
-          return '10vw'
+          return {
+            size: 10,
+            unit: 'vw'
+          }
         }
       }
     },
@@ -67,14 +73,14 @@
        * If `size` or `unit` is missing returns the default value of the prop
        */
       createCSSUnit (element) {
-        return (element.size && element.unit) ? `${element.size}${element.unit}` : element
+        return `${element.size}${element.unit}`
       },
       /**
        * Returns the half of the container size
        * @return {String} A CSS unit like `10px`
        */
       containerHalfSize () {
-        return (this.width.size && this.width.unit) ? `${this.width.size / 2}${this.width.unit}` : '35vw'
+        return `${this.width.size / 2}${this.width.unit}`
       },
       /**
        * Sets dynamically the border size
