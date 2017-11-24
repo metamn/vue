@@ -1,25 +1,23 @@
 <template lang="html">
-  <aside :class="$style.wild-map">
+  <aside :class="$style.wildMap" :style="computedContainerStyle">
     <h3>Wild map</h3>
 
-    <div :class="$style.container" :style="computedContainerStyle">
-      <div :class="[$style.wilderness]" :style="computedWildernessStyleTop">
-        <p :class="[$style.p, $style.wildernessP, $style.wildernessTopP]">Wilderness</p>
+    <div :class="[$style.wilderness]" :style="computedWildernessStyleTop">
+      <p :class="[$style.p, $style.wildernessP, $style.wildernessTopP]">Wilderness</p>
+    </div>
+    <div :class="$style.notWilderness">
+      <div :class="$style.valley">
+        <p :class="$style.p">Valley</p>
       </div>
-      <div :class="$style.notWilderness">
-        <div :class="$style.valley">
-          <p :class="$style.p">Valley</p>
-        </div>
-        <div :class="$style.frontier">
-          <p :class="$style.p">Frontier</p>
-        </div>
-        <div :class="$style.beyond">
-          <p :class="$style.p">Beyond</p>
-        </div>
+      <div :class="$style.frontier">
+        <p :class="$style.p">Frontier</p>
       </div>
-      <div :class="[$style.wilderness]" :style="computedWildernessStyleBottom">
-        <p :class="[$style.p, $style.wildernessP, $style.wildernessBottomP]">Wilderness</p>
+      <div :class="$style.beyond">
+        <p :class="$style.p">Beyond</p>
       </div>
+    </div>
+    <div :class="[$style.wilderness]" :style="computedWildernessStyleBottom">
+      <p :class="[$style.p, $style.wildernessP, $style.wildernessBottomP]">Wilderness</p>
     </div>
   </aside>
 </template>
@@ -110,7 +108,7 @@
     display: none;
   }
 
-  .container {
+  .wildMap {
     border: 1px solid;
 
     /* Do not overflow on small screens if the width is too large */
