@@ -1,5 +1,5 @@
 <template lang="html">
-  <aside :class="$style.wildMap" :style="computedContainerStyle">
+  <aside v-resize:debounce="makeTextResponsive" :class="$style.wildMap" :style="computedContainerStyle">
     <h3>Wild map</h3>
 
     <div :class="[$style.wilderness]" :style="computedWildernessStyleTop">
@@ -23,6 +23,8 @@
 </template>
 
 <script>
+  import resize from 'vue-resize-directive'
+
   export default {
     name: 'WildMap',
     props: {
@@ -134,6 +136,9 @@
     },
     mounted: function () {
       this.makeTextResponsive()
+    },
+    directives: {
+      resize
     }
   }
 </script>
