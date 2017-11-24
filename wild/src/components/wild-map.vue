@@ -12,7 +12,7 @@
       <div :class="[$style.frontier, 'textContainer']">
         <p ref="text" :class="[$style.p, 'text']">Frontier</p>
       </div>
-      <div :class="[$style.valley, 'textContainer']">
+      <div :class="[$style.beyond, 'textContainer']">
         <p ref="text" :class="[$style.p, 'text']">Beyond</p>
       </div>
     </div>
