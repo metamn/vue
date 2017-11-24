@@ -1,5 +1,5 @@
 <template lang="html">
-  <aside v-resize:throttle="makeTextResponsive" :class="$style.wildMap" :style="computedContainerStyle">
+  <aside v-resize:debounce="makeTextResponsive" :class="$style.wildMap" :style="computedContainerStyle">
     <h3>Wild map</h3>
 
     <div :class="[$style.wilderness]" :style="computedWildernessStyleTop">
@@ -42,7 +42,7 @@
         type: Object,
         default: function () {
           return {
-            size: 70,
+            size: 40,
             unit: 'vw'
           }
         }
@@ -59,7 +59,7 @@
         type: Object,
         default: function () {
           return {
-            size: 10,
+            size: 5,
             unit: 'vw'
           }
         }
@@ -112,6 +112,10 @@
             // - https://developer.mozilla.org/en-US/docs/Web/CSS/text-orientation
             texts[i].style.writingMode = 'vertical-rl'
             texts[i].style.textOrientation = 'upright'
+            textContainers[i].style.display = 'inline-grid'
+          } else {
+            texts[i].style.writingMode = 'horizontal-tb'
+            texts[i].style.textOrientation = 'mixed'
             textContainers[i].style.display = 'inline-grid'
           }
         }
