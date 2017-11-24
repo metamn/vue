@@ -1,7 +1,7 @@
 <template lang="html">
   <article class="wild">
     <h3>Wilderness</h3>
-    <wild-map :width="{ size:50, unit: 'em'}"/>
+    <wild-map :width="{ size: 50, unit: 'em'}" :borderSize="{ size: 10, unit: 'em'}"/>
   </article>
 </template>
 
