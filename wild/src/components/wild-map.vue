@@ -6,14 +6,14 @@
       <p :class="[$style.p, $style.wildernessP, $style.wildernessTopP]">Wilderness</p>
     </div>
     <div :class="$style.notWilderness">
-      <div :class="$style.valley">
-        <p :class="$style.p">Valley</p>
+      <div :class="[$style.valley, 'textContainer']">
+        <p :class="[$style.p, 'text']">Valley</p>
       </div>
-      <div :class="$style.frontier">
-        <p :class="$style.p">Frontier</p>
+      <div :class="[$style.frontier, 'textContainer']">
+        <p ref="text" :class="[$style.p, 'text']">Frontier</p>
       </div>
-      <div :class="$style.beyond">
-        <p :class="$style.p">Beyond</p>
+      <div :class="[$style.valley, 'textContainer']">
+        <p ref="text" :class="[$style.p, 'text']">Beyond</p>
       </div>
     </div>
     <div :class="[$style.wilderness]" :style="computedWildernessStyleBottom">
@@ -28,11 +28,13 @@
     props: {
       /**
        * The width of the map
-       * @type {Object}
+       * @type {Object} width
+       * @type {number} width.size
+       * @type {string} width.unit
        *
-       * The width of the map also sets other params like:
-       * - The `border-left` and `border-right` CSS properties need a unit in `px, em, vw, etc` but can't use `%`
-       * - These properties will be calculated from this `width` property
+       * The width of the map also sets other params like the `border-left` and `border-right` CSS properties
+       * - They need a unit set in `px, em, vw, etc` but not in `%`
+       * - Their size will be calculated from the map's `width` property
        */
       width: {
         type: Object,
@@ -41,8 +43,10 @@
         }
       },
       /**
-       * Th height of the border
-       * @type {Object}
+       * The height of the border
+       * @type {Object} borderSize
+       * @type {number} borderSize.size
+       * @type {string} borderSize.unit
        *
        * The value of `border-top` and `border-bottom`
        */
@@ -83,6 +87,26 @@
           border-left: ${containerHalfSize} solid transparent;
           border-right: ${containerHalfSize} solid transparent;
           `
+      },
+      /**
+       * If the text doesn't fit it's container then it will be displayed vertically
+       * @return {none}
+       */
+      makeTextResponsive () {
+        const texts = this.$el.querySelectorAll('.text')
+        const textContainers = this.$el.querySelectorAll('.textContainer')
+
+        // Loop through texts and display text vertically if text width > text container width
+        for (var i = 0; i < texts.length; i++) {
+          let textWidth = texts[i].clientWidth
+          let textContainerWidth = textContainers[i].clientWidth
+          if (textWidth > textContainerWidth) {
+            // - https://developer.mozilla.org/en-US/docs/Web/CSS/text-orientation
+            texts[i].style.writingMode = 'vertical-rl'
+            texts[i].style.textOrientation = 'upright'
+            textContainers[i].style.display = 'inline-grid'
+          }
+        }
       }
     },
     computed: {
@@ -93,12 +117,23 @@
       computedContainerStyle () {
         return `width: ${this.createCSSUnit(this.width)}`
       },
+      /**
+       * Sets dynamically the top border size
+       * @return {String} A CSS `border` property
+       */
       computedWildernessStyleTop () {
         return this.setBorderStyle('top')
       },
+      /**
+       * Sets dynamically the bottom border size
+       * @return {String} A CSS `border` property
+       */
       computedWildernessStyleBottom () {
         return this.setBorderStyle('bottom')
       }
+    },
+    mounted: function () {
+      this.makeTextResponsive()
     }
   }
 </script>
@@ -127,16 +162,10 @@
   .wildernessP {
     position: absolute;
     color: white;
-    left: -2.5em;
-    width: 100%;
   }
 
-  .wildernessTopP {
-    top: -10vw;
-  }
-
-  .wildernessBottomP {
-    top: 5vw;
+  p {
+    padding: 1.25em;
   }
 
   .notWilderness {

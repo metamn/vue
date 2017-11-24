@@ -10,5 +10,8 @@
   }
 </script>
 
-<style>
+<style lang='css'>
+  * {
+    box-sizing: border-box;
+  }
 </style>
