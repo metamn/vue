@@ -146,6 +146,9 @@
       }
     },
     mounted: function () {
+      /**
+       * Display text to fit the current viewport
+       */
       this.makeTextResponsive()
     },
     directives: {

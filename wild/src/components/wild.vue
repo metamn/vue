@@ -1,10 +1,7 @@
 <template lang="html">
   <article :class="$style.wild">
     <h3>Wilderness</h3>
-    <!--
-    <wild-map :width="{ size: 50, unit: 'em'}" :borderSize="{ size: 10, unit: 'em'}"/>
-    -->
-    <wild-map :class="$style.wildMap" />
+    <wild-map :class="$style.wildMap" :width="{ size: 50, unit: 'vw'}" :borderSize="{ size: 8, unit: 'vw'}"/>
   </article>
 </template>
 
@@ -23,7 +20,7 @@
   .wild {
     width: 100%;
   }
-  
+
   .wildMap {
     margin: 0 auto;
   }
