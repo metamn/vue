@@ -114,6 +114,7 @@
             texts[i].style.textOrientation = 'upright'
             textContainers[i].style.display = 'inline-grid'
           } else {
+            // - setting the default styles
             texts[i].style.writingMode = 'horizontal-tb'
             texts[i].style.textOrientation = 'mixed'
             textContainers[i].style.display = 'inline-grid'
