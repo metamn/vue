@@ -2,7 +2,7 @@
   <aside :class="$style.wild-map">
     <h3>Wild map</h3>
 
-    <div :class="$style.container">
+    <div :class="$style.container" :style="computedContainerStyle">
       <div :class="[$style.wilderness, $style.wildernessTop]">
         <p :class="[$style.p, $style.wildernessP, $style.wildernessTopP]">Wilderness</p>
       </div>
@@ -26,7 +26,32 @@
 
 <script>
   export default {
-    name: 'WildMap'
+    name: 'WildMap',
+    props: {
+      /**
+       * The width of the map
+       * @type {Object}
+       *
+       * The `border-top` and `border-bottom` CSS properties need a unit in `px, em, vw, etc` but can't use '%'
+       * These properties will be calculated from this `width` property
+       */
+      width: {
+        type: Object,
+        default: function () {
+          return '70vw'
+        }
+      }
+    },
+    methods: {
+      getContainerWidth () {
+        return (this.width.size && this.width.unit) ? `${this.width.size}${this.width.unit}` : this.width
+      }
+    },
+    computed: {
+      computedContainerStyle () {
+        return `width: ${this.getContainerWidth()}`
+      }
+    }
   }
 </script>
 
@@ -36,7 +61,6 @@
   }
 
   .container {
-    width: 70vw;
     border: 1px solid;
     margin: 10vh auto;
   }
@@ -94,8 +118,6 @@
   .valley {
     width: 50%;
     border-right: 1px solid;
-    // transform: perspective(18vw) rotateY(25deg) scale(1.4) translateX(8vw);
-    // border: 1px solid;
   }
 
   .frontier,
