@@ -2,9 +2,7 @@
   <section :class="$style.wild">
     <h3>Wilderness</h3>
     <wild-map :class="$style.wildMap" :width="{ size: 50, unit: 'vw'}" :borderSize="{ size: 8, unit: 'vw'}"/>
-    <div v-for="item in items">
-      <wild-item :item="item" />
-    </div>
+    <wild-item v-for="item in items" :item="item" />
   </section>
 </template>
 
@@ -18,28 +16,79 @@
       return {
         items: [
           {
-            'title': 'Wilderness',
-            'description': `
-              <p>Explorations, new aesthetics and new techniques between art and commerce, by independent players</p>
-            `
-          },
-          {
             'title': 'Valley',
             'description': `
-              <p>The good old &mdash; well established way with no future</p>
-            `
+              <p>The good old &mdash; well established way with no or slow future</p>
+            `,
+            'facets': [
+              {
+                'name': 'CMS',
+                'items': [
+                  'Drupal',
+                  'Joomla',
+                  'Magento',
+                  'Expression Engine',
+                  'Tumblr',
+                  'Wordpress.org',
+                  'Wix'
+                ]
+              }
+            ]
           },
           {
             'title': 'Frontier',
             'description': `
               <p>Best of breed. Stable yet progressive.</p>
-            `
+            `,
+            'facets': [
+              {
+                'name': 'CMS',
+                'items': [
+                  'Squarespace',
+                  'Shopify',
+                  'Medium',
+                  'Wordpress.com',
+                  'Craft CMS',
+                  'Ghost',
+                  'Weebly',
+                  'Virb',
+                  'Static site generators'
+                ]
+              }
+            ]
           },
           {
             'title': 'Beyond',
             'description': `
               <p>Experiments, research, trend setting backed up by global players</p>
-            `
+            `,
+            'facets': [
+              {
+                'name': 'CMS',
+                'items': [
+                  'Wordpress + Guttenberg',
+                  'Contentful',
+                  'Firebase'
+                ]
+              }
+            ]
+          },
+          {
+            'title': 'Wilderness',
+            'description': `
+              <p>Explorations, new aesthetics and new techniques between art and commerce, by independent players</p>
+            `,
+            'facets': [
+              {
+                'name': 'CMS',
+                'items': [
+                  'JAMStack',
+                  'Netlify',
+                  'Storyblok',
+                  'GraphCMS'
+                ]
+              }
+            ]
           }
         ]
       }
