@@ -2,8 +2,8 @@
   <aside v-resize:debounce="makeTextResponsive" :class="$style.wildMap" :style="computedContainerStyle">
     <h3>Wild map</h3>
 
-    <div :class="[$style.wilderness]" :style="computedWildernessStyleTop">
-      <p :class="[$style.p, $style.wildernessP, $style.wildernessTopP]">Wilderness</p>
+    <div :class="[$style.wilderness, 'wilderness']" :style="computedWildernessStyleTop">
+      <p :class="[$style.p, $style.wildernessP, $style.wildernessTopP, 'wilderness-p']">Wilderness</p>
     </div>
     <div :class="$style.notWilderness">
       <div :class="[$style.valley, 'textContainer']">
@@ -16,8 +16,8 @@
         <p ref="text" :class="[$style.p, 'text']">Beyond</p>
       </div>
     </div>
-    <div :class="[$style.wilderness]" :style="computedWildernessStyleBottom">
-      <p :class="[$style.p, $style.wildernessP, $style.wildernessBottomP]">Wilderness</p>
+    <div :class="[$style.wilderness, 'wilderness']" :style="computedWildernessStyleBottom">
+      <p :class="[$style.p, $style.wildernessP, $style.wildernessBottomP, 'wilderness-p']">Wilderness</p>
     </div>
   </aside>
 </template>
@@ -87,8 +87,8 @@
        * @return {Sting} A valid CSS `border` property
        */
       setBorderStyle (direction) {
-        const borderDirection = (direction === 'top') ? 'border-top' : 'border-bottom'
-        const containerHalfSize = this.containerHalfSize()
+        let borderDirection = (direction === 'top') ? 'border-top' : 'border-bottom'
+        let containerHalfSize = this.containerHalfSize()
 
         return `
           ${borderDirection}: ${this.createCSSUnit(this.borderSize)} solid #000;
@@ -101,8 +101,8 @@
        * @return {none}
        */
       makeTextResponsive () {
-        const texts = this.$el.querySelectorAll('.text')
-        const textContainers = this.$el.querySelectorAll('.textContainer')
+        let texts = this.$el.querySelectorAll('.text')
+        let textContainers = this.$el.querySelectorAll('.textContainer')
 
         // Loop through texts and display text vertically if text width > text container width
         for (var i = 0; i < texts.length; i++) {
@@ -120,6 +120,25 @@
             textContainers[i].style.display = 'inline-grid'
           }
         }
+      },
+      /**
+       * Center `wilderness` text both vertically and horizontally
+       */
+      centerWilderness () {
+        let wilderness = this.$el.querySelectorAll('.wilderness')
+        let wildernessH = wilderness[0].offsetHeight
+
+        let wildernessPs = this.$el.querySelectorAll('.wilderness-p')
+        let wildernessPW = wildernessPs[0].clientWidth
+        let wildernessPH = wildernessPs[0].clientHeight
+
+        let top = (wildernessH - wildernessPH) / 2
+
+        wildernessPs[0].style.marginLeft = `-${wildernessPW / 2}px`
+        wildernessPs[0].style.marginTop = `-${top + wildernessPH}px`
+
+        wildernessPs[1].style.marginLeft = `-${wildernessPW / 2}px`
+        wildernessPs[1].style.marginTop = `${top}px`
       }
     },
     computed: {
@@ -150,6 +169,10 @@
        * Display text to fit the current viewport
        */
       this.makeTextResponsive()
+      /**
+       * Center the wilderness text
+       */
+      this.centerWilderness()
     },
     directives: {
       resize
@@ -181,6 +204,8 @@
   .wildernessP {
     position: absolute;
     color: white;
+    top: 0;
+    left: 0;
   }
 
   p {
