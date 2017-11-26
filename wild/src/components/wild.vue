@@ -18,11 +18,11 @@
           {
             'title': 'Valley',
             'description': `
-              <p>The good old &mdash; well established way with no or slow future</p>
+              <p>The good old, well established way with no or slow future</p>
             `,
             'facets': [
               {
-                'name': 'CMS',
+                'name': 'Content',
                 'items': [
                   'Drupal',
                   'Joomla',
@@ -31,6 +31,25 @@
                   'Tumblr',
                   'Wordpress.org',
                   'Wix'
+                ]
+              },
+              {
+                'name': 'Technology',
+                'items': [
+                  'jQuery',
+                  'MySQL',
+                  'PHP',
+                  'Apache',
+                  'AJAX',
+                  'Zend, Symphony, CakePHP',
+                  'SVN'
+                ]
+              },
+              {
+                'name': 'Design',
+                'items': [
+                  'Photoshop',
+                  'Illustrator'
                 ]
               }
             ]
@@ -42,7 +61,7 @@
             `,
             'facets': [
               {
-                'name': 'CMS',
+                'name': 'Content',
                 'items': [
                   'Squarespace',
                   'Shopify',
@@ -54,6 +73,26 @@
                   'Virb',
                   'Static site generators'
                 ]
+              },
+              {
+                'name': 'Technology',
+                'items': [
+                  'MVC',
+                  'REST',
+                  'Task runners (Gulp)',
+                  'Templating languages (Mustache)',
+                  'Pre-processors (SCSS)',
+                  'Asset managers',
+                  'Ruby on Rails, Django, Laravel, Swift',
+                  'Git'
+                ]
+              },
+              {
+                'name': 'Design',
+                'items': [
+                  'Sketch',
+                  'Flat design'
+                ]
               }
             ]
           },
@@ -64,11 +103,31 @@
             `,
             'facets': [
               {
-                'name': 'CMS',
+                'name': 'Content',
                 'items': [
                   'Wordpress + Guttenberg',
                   'Contentful',
                   'Firebase'
+                ]
+              },
+              {
+                'name': 'Technology',
+                'items': [
+                  'React',
+                  'Module bundlers (Webpack)',
+                  'Post processors (Post CSS)',
+                  'JSON',
+                  'NoSQL',
+                  'REST API',
+                  'Node.js',
+                  'Containers'
+                ]
+              },
+              {
+                'name': 'Design',
+                'items': [
+                  'Figma',
+                  'Material Design'
                 ]
               }
             ]
@@ -80,12 +139,29 @@
             `,
             'facets': [
               {
-                'name': 'CMS',
+                'name': 'Content',
                 'items': [
                   'JAMStack',
                   'Netlify',
                   'Storyblok',
                   'GraphCMS'
+                ]
+              },
+              {
+                'name': 'Technology',
+                'items': [
+                  'Vue',
+                  'CSS Modules',
+                  'GraphQL',
+                  'Serverless',
+                  'Databaseless',
+                  'Microservices'
+                ]
+              },
+              {
+                'name': 'Design',
+                'items': [
+                  'Design in the browser (Brutalist websites)'
                 ]
               }
             ]
