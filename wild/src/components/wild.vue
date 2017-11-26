@@ -20,19 +20,19 @@
           {
             'title': 'Wilderness',
             'description': `
-              <p>Explorations, new aesthetics, between art and commerce, by independent players</p>
+              <p>Explorations, new aesthetics and new techniques between art and commerce, by independent players</p>
             `
           },
           {
             'title': 'Valley',
             'description': `
-              <p>Things are working fine the good old way.</p>
+              <p>The good old &mdash; well established way with no future</p>
             `
           },
           {
             'title': 'Frontier',
             'description': `
-              <p>Things are working fine following trends.</p>
+              <p>Best of breed. Stable yet progressive.</p>
             `
           },
           {
