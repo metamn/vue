@@ -180,7 +180,7 @@
   }
 </script>
 
-<style module>
+<style module scoped>
   h3 {
     display: none;
   }
@@ -208,7 +208,7 @@
     left: 0;
   }
 
-  p {
+  .p {
     padding: 1.25em;
   }
 
