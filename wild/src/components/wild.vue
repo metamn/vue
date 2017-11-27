@@ -15,7 +15,6 @@
     name: 'wild',
     data: function () {
       return {
-        items2: store,
         items: [
           {
             'title': 'Valley',
@@ -173,6 +172,7 @@
     },
     created () {
       store.getMaps()
+      console.log(store.state.maps)
     },
     components: {
       'wild-map': WildMap,

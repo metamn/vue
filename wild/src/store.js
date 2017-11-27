@@ -10,8 +10,12 @@ const storage = {
     maps: {}
   },
   getMaps () {
-    client.getEntries()
-    .then((response) => console.log(response.items))
+    client.getEntries({
+      content_type: 'map'
+    })
+    .then((response) => {
+      storage.state.maps = response.items.map(item => item.fields.name)
+    })
     .catch(console.error)
   }
 }
