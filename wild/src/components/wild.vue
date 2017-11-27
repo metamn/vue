@@ -7,6 +7,7 @@
 </template>
 
 <script>
+  import store from '../store'
   import WildMap from './wild-map'
   import WildItem from './wild-item'
 
@@ -14,6 +15,7 @@
     name: 'wild',
     data: function () {
       return {
+        items2: store,
         items: [
           {
             'title': 'Valley',
@@ -168,6 +170,9 @@
           }
         ]
       }
+    },
+    created () {
+      store.getMaps()
     },
     components: {
       'wild-map': WildMap,
