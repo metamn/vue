@@ -2,7 +2,7 @@
   <aside class="">
     <h3>{{ facet.name }}</h3>
 
-    <ul v-for="item in facet.items">
+    <ul v-for="item in facet.items" :key="item.id">
       <li>{{ item }}</li>
     </ul>
   </aside>
@@ -15,7 +15,7 @@
       facet: {
         type: Object
       }
-    },
+    }
   }
 </script>
 

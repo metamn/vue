@@ -7,7 +7,7 @@
       <div :class="[$style.descriptionText]" v-html="item.description"></div>
     </aside>
 
-    <wild-facet v-for="facet in item.facets" :facet="facet" />
+    <wild-facet v-for="facet in item.facets" :facet="facet" :key="facet.id" />
   </article>
 </template>
 

@@ -2,7 +2,7 @@
   <section :class="$style.wild">
     <h3>Wilderness</h3>
     <wild-map :class="$style.wildMap" :width="{ size: 50, unit: 'vw'}" :borderSize="{ size: 8, unit: 'vw'}"/>
-    <wild-item v-for="item in items" :item="item" />
+    <wild-item v-for="item in items" :item="item" :key="item.id"/>
   </section>
 </template>
 
