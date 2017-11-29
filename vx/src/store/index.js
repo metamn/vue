@@ -10,5 +10,10 @@ export default new Vuex.Store({
       'Beyond',
       'Wilderness'
     ]
+  },
+  getters: {
+    mapsCount: state => {
+      return state.maps.length
+    }
   }
 })

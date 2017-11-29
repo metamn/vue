@@ -1,6 +1,6 @@
 <template>
   <div class="hello">
-    maps: {{ maps }}
+    {{ mapsCount }} maps: {{ maps }}
   </div>
 </template>
 
@@ -10,6 +10,9 @@
     computed: {
       maps () {
         return this.$store.state.maps.join(', ')
+      },
+      mapsCount () {
+        return this.$store.getters.mapsCount
       }
     }
   }
