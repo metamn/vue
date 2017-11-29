@@ -7,7 +7,9 @@ const client = createClient({
 
 const storage = {
   state: {
-    maps: {}
+    maps: [],
+    facets: [],
+    entries: []
   },
   getMaps () {
     client.getEntries({
@@ -17,10 +19,30 @@ const storage = {
       storage.state.maps = response.items.map(item => item.fields.name)
     })
     .catch(console.error)
+  },
+  getFacets () {
+    client.getEntries({
+      content_type: 'facet'
+    })
+    .then((response) => {
+      storage.state.facets = response.items.map(item => item.fields.name)
+    })
+    .catch(console.error)
+  },
+  getEntries () {
+    client.getEntries({
+      content_type: 'entry'
+    })
+    .then((response) => {
+      storage.state.entries = response.items.map(item => item.fields.name)
+    })
+    .catch(console.error)
   }
 }
 
 export default {
   state: storage.state,
-  getMaps () { storage.getMaps() }
+  getMaps () { storage.getMaps() },
+  getFacets () { storage.getFacets() },
+  getEntries () { storage.getEntries() }
 }
