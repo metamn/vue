@@ -4,12 +4,12 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    maps: [
-      'Valley',
-      'Frontier',
-      'Beyond',
-      'Wilderness'
-    ]
+    maps: []
+  },
+  mutations: {
+    setMaps (state, val) {
+      state.maps = val
+    }
   },
   getters: {
     mapsCount: state => {
