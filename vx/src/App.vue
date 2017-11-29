@@ -5,6 +5,9 @@
 </template>
 
 <script>
+  // cannot move this code to `api` ... it won't work at all after a refresh ...
+  // import {syncStoreWithBackend} from './api'
+
   import {createClient} from 'contentful'
 
   const client = createClient({
@@ -15,6 +18,8 @@
   export default {
     name: 'app',
     async beforeCreate () {
+      // syncStoreWithBackend()
+
       client.getEntries({
         content_type: 'map'
       })

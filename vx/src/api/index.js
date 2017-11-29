@@ -6,7 +6,7 @@ const client = createClient({
 })
 
 export default {
-  async syncStoreWithBackend () {
+  syncStoreWithBackend () {
     client.getEntries({
       content_type: 'map'
     })
