@@ -6,6 +6,9 @@
 
 <script>
   // cannot move this code to `api` ... it won't work at all after a refresh ...
+  // THIS CAN HELP::
+  // - https://www.reddit.com/r/vuejs/comments/5moay9/any_simple_examples_using_axios_with_vuex_for/
+  // MORE EXACTLY: https://medium.com/wdstack/vue-vuex-getting-started-f78c03d9f65
   // import {syncStoreWithBackend} from './api'
 
   import {createClient} from 'contentful'
