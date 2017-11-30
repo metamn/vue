@@ -1,6 +1,6 @@
 <template>
   <div class="hello">
-    {{ mapsCount }} maps: {{ maps }}
+    {{ mapsCount }} maps: {{ mapsListOfNames }}
   </div>
 </template>
 
@@ -14,7 +14,8 @@
         'maps'
       ]),
       ...mapGetters([
-        'mapsCount'
+        'mapsCount',
+        'mapsListOfNames'
       ])
     },
     mounted: function () {

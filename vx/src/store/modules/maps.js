@@ -7,6 +7,9 @@ const state = {
 
 // Computed data
 const getters = {
+  mapsListOfNames: state => {
+    return state.maps.join(', ')
+  },
   mapsCount: state => {
     return (state.maps[0] === 'No maps yet') ? 0 : state.maps.length
   }
