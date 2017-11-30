@@ -18,7 +18,7 @@
       ])
     },
     mounted: function () {
-      this.$store.dispatch('LOAD_MAP_LIST')
+      this.$store.dispatch('GET_MAP_LIST')
     }
   }
 </script>

@@ -1,9 +1,4 @@
-import {createClient} from 'contentful'
-
-const client = createClient({
-  space: 'lvp1p3se851j',
-  accessToken: 'a8dcf7a9aeb2b6898fc58b0dae20d92014fc6ae72c06c61276293d300e4001f7'
-})
+import api from './../../api'
 
 // Data
 const state = {
@@ -13,18 +8,16 @@ const state = {
 // Computed data
 const getters = {
   mapsCount: state => {
-    return state.maps.length
+    return (state.maps[0] === 'No maps yet') ? 0 : state.maps.length
   }
 }
 
 // Get data
 const actions = {
-  LOAD_MAP_LIST: function ({ commit }) {
-    client.getEntries({
-      content_type: 'map'
-    })
+  GET_MAP_LIST: function ({ commit }) {
+    api.getMapList()
     .then((response) => {
-      const maps = response.items.map(item => item.fields.name)
+      const maps = api.parseMap(response)
       commit('SET_MAP_LIST', { list: maps })
     })
     .catch(console.error)
