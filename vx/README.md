@@ -1,30 +1,18 @@
 # vx
 
-> A Vue.js project
+> Vue + Vuex + API
 
-## Build Setup
+Based on https://medium.com/wdstack/vue-vuex-getting-started-f78c03d9f65
 
-``` bash
-# install dependencies
-npm install
+## Separate concerns
 
-# serve with hot reload at localhost:8080
-npm run dev
+- components are connected to Vuex (`/src/store`)
+- Vuex is connected to API (`/src/api`)
+- API is connected to Contentful
+- Contentful can be replaced to any other service
 
-# build for production with minification
-npm run build
+## Use as a basic template
 
-# build for production and view the bundle analyzer report
-npm run build --report
+This can be used as a starter template. Contentful is removed and replaced with static data instead of API calls
 
-# run unit tests
-npm run unit
-
-# run e2e tests
-npm run e2e
-
-# run all tests
-npm test
-```
-
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+Note: Server Side Rendering or pretty classnames are not enabled, things I usually use on any project
